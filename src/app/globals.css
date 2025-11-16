@@ -1,28 +1,204 @@
-﻿:root{
-  --bg:#fff;
-  --muted:#666;
-  --accent:#b8893a; /* gold-ish */
-  --accent-2:#111827;
-  --maxw:1100px;
+﻿/* -------------------------
+   GLOBAL LUXURY DESIGN SYSTEM
+-------------------------- */
+
+:root {
+  --bg: #ffffff;
+  --text-dark: #111827;
+  --muted: #6b7280;
+  --gold: #b8893a;
+  --maxw: 1200px;
+
+  --p-sm: 12px;
+  --p-md: 20px;
+  --p-lg: 40px;
+
+  --radius: 14px;
 }
-*{box-sizing:border-box}
-html,body,#root{height:100%}
-body{
-  margin:0;
-  font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:var(--bg);
-  color:var(--accent-2);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-main{min-height:60vh}
-a{color:inherit;text-decoration:none}
-.container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
-.header{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid rgba(0,0,0,0.04)}
-.brand{font-weight:700;letter-spacing:0.6px}
-.nav{display:flex;gap:18px;align-items:center}
-.btn{padding:8px 14px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:#fff;cursor:pointer}
-.hero{display:flex;align-items:center;justify-content:space-between;padding:56px 20px;background:linear-gradient(90deg,#fffaf5,#fbfbfb)}
-.hero-left{max-width:640px}
-.hero-cta{margin-top:18px;display:flex;gap:12px}
-.footer{padding:28px 20px;border-top:1px solid rgba(0,0,0,0.04);text-align:center;color:var(--muted)}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-dark);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* container */
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--p-md);
+}
+
+/* basic links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* -------------------------
+   NAVBAR
+-------------------------- */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--p-md) 0;
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  z-index: 50;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: var(--gold);
+}
+
+/* Button */
+.btn {
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(0,0,0,0.09);
+  background: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* -------------------------
+   HERO SECTION (VIDEO MODE)
+-------------------------- */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* full video */
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+}
+
+/* centered content */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+  max-width: 700px;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.hero-sub {
+  font-size: 1.2rem;
+  color: #e1e1e1;
+  margin-bottom: 22px;
+}
+
+.hero-cta {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+/* primary */
+.hero-btn {
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  background: var(--gold);
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  opacity: 0.85;
+}
+
+/* secondary */
+.hero-btn-outline {
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  background: transparent;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.hero-btn-outline:hover {
+  background: var(--gold);
+  color: white;
+}
+
+/* -------------------------
+   FOOTER
+-------------------------- */
+
+.footer {
+  text-align: center;
+  padding: var(--p-lg) var(--p-md);
+  color: var(--muted);
+  border-top: 1px solid rgba(0,0,0,0.08);
+}

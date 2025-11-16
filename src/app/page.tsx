@@ -7,7 +7,7 @@ import { properties } from "../data/properties";
 export default function HomePage() {
   return (
     <>
-      <Navbar />
+     
       <main className="bg-white min-h-screen">
         <Hero
           title="Every home reflects you"

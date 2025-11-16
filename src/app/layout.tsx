@@ -1,16 +1,21 @@
-﻿export const metadata = {
-  title: "Pinnacl Properties",
-};
+﻿import "./globals.css"
+import type { Metadata } from "next"
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata: Metadata = {
+  title: "Pinnacl Properties",
+  description: "Luxury. Trust. Simplicity.",
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <head />
-      <body style={{ margin: 0, fontFamily: "Inter, system-ui, Arial" }}>
-        <div style={{ minHeight: "100vh", background: "#fff" }}>
-          {children}
-        </div>
+      <body suppressHydrationWarning={true}>
+        {children}
       </body>
     </html>
-  );
+  )
 }
